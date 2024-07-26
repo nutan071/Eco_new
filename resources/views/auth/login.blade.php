@@ -52,7 +52,7 @@
             @endif
 
             <p class="mb-0">
-                <a href="{{ route('register') }}" class="text-center">Register a new membership</a>
+                <a href="{{ route('register.store') }}" class="text-center">Register a new membership</a>
             </p>
         </div>
     </div>
