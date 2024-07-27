@@ -17,7 +17,11 @@
 <body>
     @include('partials.header')
 
-    @yield('content')
+    <div class="container mt-4">
+        @yield('content')
+    </div>
+
+    
 
     @include('partials.footer')
 
