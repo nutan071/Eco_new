@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Admin\Products;  
+use App\Models\Admin\Products;
 
 class AdminController extends Controller
 {
@@ -14,3 +14,4 @@ class AdminController extends Controller
     }
 
 }
+
