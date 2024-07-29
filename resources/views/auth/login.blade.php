@@ -1,6 +1,6 @@
-@extends('layouts.app')
 
-@section('content')
+
+
 <div class="login-box">
     <div class="login-logo">
         <a href="#"><b>Admin</b>LTE</a>
@@ -57,4 +57,4 @@
         </div>
     </div>
 </div>
-@endsection
+

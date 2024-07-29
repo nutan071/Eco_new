@@ -60,8 +60,7 @@ class CartController extends Controller
 
     public function checkout(Request $request)
     {
-        // Store order details in the database
-        // Clear the cart session
+    
         session()->forget('cart');
         return redirect()->route('user.dashboard')->with('success', 'Order placed successfully!');
     }

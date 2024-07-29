@@ -3,6 +3,7 @@ namespace App\Models\Admin;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use \App\Models\Wishlist;
 
 class Products extends Model
 {
@@ -17,4 +18,12 @@ class Products extends Model
     {
         return asset('storage/' . $this->attributes['image_url']);
     }
+
+
+    public function wishlist()
+    {
+        return $this->hasMany(Wishlist::class);
+    }
+
 }
+

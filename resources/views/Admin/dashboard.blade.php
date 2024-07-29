@@ -16,35 +16,34 @@
     <div class="container-fluid">
         <button class="btn btn-primary" data-toggle="modal" data-target="#addProductModal">Add Product</button>
         <table class="table">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Image</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach($products as $product)
-            <tr data-id="{{ $product->id }}">
-                <td>{{ $product->name }}</td>
-                <td>{{ $product->description }}</td>
-                <td>{{ $product->price }}</td>
-                <td>{{ $product->quantity }}</td>
-                <td>
-                    <img src="{{ asset('storage/' . $product->image_url) }}" alt="{{ $product->name }}" style="width: 100px; height: auto;">
-                </td>
-                <td>
-                    <button class="btn btn-secondary" data-toggle="modal" data-target="#editProductModal{{ $product->id }}">Edit</button>
-                    <button class="btn btn-danger" data-toggle="modal" data-target="#deleteProductModal{{ $product->id }}">Delete</button>
-                </td>
-            </tr>
-        @endforeach
-    </tbody>
-</table>
-
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Image</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="product-list">
+                @foreach($products as $product)
+                    <tr data-id="{{ $product->id }}">
+                        <td>{{ $product->name }}</td>
+                        <td>{{ $product->description }}</td>
+                        <td>{{ $product->price }}</td>
+                        <td>{{ $product->quantity }}</td>
+                        <td>
+                            <img src="{{ asset('' . $product->image_url) }}" alt="{{ $product->name }}" style="width: 100px; height: auto;">
+                        </td>
+                        <td>
+                            <button class="btn btn-secondary" data-toggle="modal" data-target="#editProductModal{{ $product->id }}">Edit</button>
+                            <button class="btn btn-danger" data-toggle="modal" data-target="#deleteProductModal{{ $product->id }}">Delete</button>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
     </div>
 </div>
 
@@ -167,7 +166,6 @@
 </div>
 @endforeach
 
-
 <script>
 $(document).ready(function () {
     $('#addProductForm').on('submit', function (e) {
@@ -182,7 +180,22 @@ $(document).ready(function () {
             success: function (response) {
                 if (response.success) {
                     $('#addProductModal').modal('hide');
-                    location.reload(); 
+                    $('#addProductForm')[0].reset();
+                    var product = response.product;
+                    var newRow = `
+                        <tr data-id="${product.id}">
+                            <td>${product.name}</td>
+                            <td>${product.description}</td>
+                            <td>${product.price}</td>
+                            <td>${product.quantity}</td>
+                            <td><img src="${product.image_url}" alt="${product.name}" style="width: 100px; height: auto;"></td>
+                            <td>
+                                <button class="btn btn-secondary" data-toggle="modal" data-target="#editProductModal${product.id}">Edit</button>
+                                <button class="btn btn-danger" data-toggle="modal" data-target="#deleteProductModal${product.id}">Delete</button>
+                            </td>
+                        </tr>
+                    `;
+                    $('#product-list').append(newRow);
                 }
             },
             error: function (response) {
@@ -224,7 +237,7 @@ $(document).ready(function () {
             success: function (response) {
                 if (response.success) {
                     $('#deleteProductModal' + id).modal('hide');
-                    location.reload(); 
+                    $('tr[data-id="' + id + '"]').remove();
                 }
             },
             error: function (response) {
