@@ -34,6 +34,10 @@
                         <td>{{ $product->price }}</td>
                         <td>{{ $product->quantity }}</td>
                         <td>
+                            <?php 
+                            
+                                // die("-------------------");
+                            ?>
                             <img src="{{ asset('' . $product->image_url) }}" alt="{{ $product->name }}" style="width: 100px; height: auto;">
                         </td>
                         <td>

@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\ProductsController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,18 +27,21 @@ Route::get('/', function () {
 
 Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('login', [LoginController::class, 'login']);
-Route::post('logout', [LoginController::class, 'logout'])->name('logout');
+
+
 
 Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('register.show');
 Route::post('register', [RegisterController::class, 'register'])->name('register.store');
 
 Route::middleware('auth')->group(function () {
     Route::get('/user/dashboard', [UserController::class, 'index'])->name('user.dashboard');
+    Route::any('logout', [LoginController::class, 'logout'])->name('auth.logout');
 });
 
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('Admin.dashboard');
     Route::resource('admin/products', ProductsController::class, ['as' => 'Admin']);
+    Route::get('/user-table',[AdminController::class,'userdata'])->name('Admin.user.table');
 });
 
 
@@ -58,6 +62,10 @@ Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist.in
 Route::get('/checkout', [CheckoutController::class, 'show'])->name('checkout-method');
 Route::post('/order/create', [CheckoutController::class, 'create'])->name('order.create');
 Route::get('/order/success', [CheckoutController::class, 'success'])->name('order.success');
+
+
+
+Route::get('/profile/orders', [OrderController::class, 'index'])->name('profile.orders');
 
 
 

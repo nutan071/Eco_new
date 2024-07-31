@@ -106,7 +106,7 @@
 
                 <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
                     <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg={{asset(''. $product->image_url)}}>
+                        <div class="product__item__pic set-bg" data-setbg="{{asset(''. $product->image_url)}}">
                             <span class="label">New</span>
                             <ul class="product__hover">
                                 <li>

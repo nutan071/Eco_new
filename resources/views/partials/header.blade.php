@@ -4,7 +4,7 @@
     </div>
 
     <!-- Offcanvas Menu Begin -->
-    <div class="offcanvas-menu-overlay"></div>
+    <!-- <div class="offcanvas-menu-overlay"></div>
     <div class="offcanvas-menu-wrapper">
         <div class="offcanvas__option">
             <div class="offcanvas__links">
@@ -20,6 +20,7 @@
                 </ul>
             </div>
         </div>
+
         <div class="offcanvas__nav__option">
             <a href="#" class="search-switch"><img src="{{ asset('/img/icon/search.png') }}" alt=""></a>
            
@@ -31,7 +32,7 @@
         <div class="offcanvas__text">
             <p>Free shipping, 30-day return or refund guarantee.</p>
         </div>
-    </div>
+    </div> -->
     <!-- Offcanvas Menu End -->
 
     <!-- Header Section Begin -->
@@ -58,6 +59,17 @@
                                     <li>USD</li>
                                 </ul>
                             </div>
+                            <div  class="header__top__links">
+                                <!-- <img src="{{asset('img/profile.png')}}" width="50px" height="50px" alt="">     -->
+                                <a href="{{ route('profile.orders') }}">PROFILE</a>
+                               
+                            </div>
+                            <div  class="header__top__links">
+                            <form method="POST" action="{{ route('login') }}">
+                                @csrf
+                                <button type="submit">Logout</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -74,11 +86,11 @@
                     <nav class="header__menu mobile-menu">
                         <ul>
                             <li class="active"><a href="{{ route('user.dashboard') }}">Home</a></li>
-                            <li><a href="./shop.html">Shop</a></li>
+                            <li><a href="{{route('Admin.user.table')}}">User Details</a></li>
                             <li><a href="#">Pages</a>
                                 <ul class="dropdown">
                                     <li><a href="./about.html">About Us</a></li>
-                                    <li><a href="./shop-details.html">Shop Details</a></li>
+                                    <li><a href=""> Details</a></li>
                                     <li><a href="./shopping-cart.html">Shopping Cart</a></li>
                                     <li><a href="./checkout.html">Check Out</a></li>
                                     <li><a href="./blog-details.html">Blog Details</a></li>
@@ -93,7 +105,7 @@
                     <div class="header__nav__option">
                         <a href="#" class="search-switch"><img src="{{ asset('/img/icon/search.png') }}" alt=""></a>
                         <a href="{{ route('wishlist.index') }}"><img src="{{ asset('img/icon/heart.png') }}" alt="Wishlist"><span>{{ Auth::check() ? Auth::user()->wishlist()->count() : '0' }}</span></a>
-                        <a href="#"><img src="{{ asset('img/icon/cart.png')}}" alt=""> <span>0</span></a>
+                        <a href="{{route('cart.index')}}"><img src="{{ asset('img/icon/cart.png')}}" alt=""> <span>0</span></a>
                         <div class="price">$0.00</div>
                     </div>
                 </div>
@@ -101,3 +113,4 @@
             <div class="canvas__open"><i class="fa fa-bars"></i></div>
         </div>
     </header>
+
