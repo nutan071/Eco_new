@@ -4,10 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Admin\Products;
+<<<<<<< HEAD
 use DataTables;
 use App\Models\User;
 use App\Models\Wishlist;
 use App\Models\order;
+=======
+use App\Models\User;
+// use DataTables;
+>>>>>>> b3136abe432d0ac827e3f08bcd28b7c4964da084
 
 class AdminController extends Controller
 {
@@ -38,6 +43,7 @@ class AdminController extends Controller
 
     public function userdata()
     {
+<<<<<<< HEAD
         if(\request()->ajax()){
             $data = User::select('name', 'email')->get();
             return DataTables::of($data)
@@ -66,6 +72,10 @@ class AdminController extends Controller
     {
         $orders = order::all();
         return view('Admin.order.table',compact('orders'));
+=======
+        $users = User::all();
+        return view('Admin.user.table', compact('users'));
+>>>>>>> b3136abe432d0ac827e3f08bcd28b7c4964da084
     }
 
 }

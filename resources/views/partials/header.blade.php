@@ -23,7 +23,7 @@
 
         <div class="offcanvas__nav__option">
             <a href="#" class="search-switch"><img src="{{ asset('/img/icon/search.png') }}" alt=""></a>
-           
+
             <a href="#"><img src="{{ asset('/img/icon/heart.png' ) }}"alt=""></a>
             <a href="#"><img src="{{ asset('img/icon/cart.png')}}" alt=""> <span>0</span></a>
             <div class="price">$0.00</div>
@@ -59,6 +59,7 @@
                                     <li>USD</li>
                                 </ul>
                             </div>
+<<<<<<< HEAD
                             <div  class="header__top__links">
                                 <!-- <img src="{{asset('img/profile.png')}}" width="50px" height="50px" alt="">     -->
                                 <a href="{{ route('profile.orders') }}">PROFILE</a>
@@ -73,6 +74,10 @@
                                 @csrf
                                 <button type="submit">Logout</button>
                                 </form>
+=======
+                            <div>
+                                <a href="{{route('cart.index')}}">PROFILE</a>
+>>>>>>> b3136abe432d0ac827e3f08bcd28b7c4964da084
                             </div>
                         </div>
                     </div>
@@ -118,4 +123,3 @@
             <div class="canvas__open"><i class="fa fa-bars"></i></div>
         </div>
     </header>
-
