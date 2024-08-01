@@ -4,6 +4,9 @@ namespace App\Models\Admin;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use \App\Models\Wishlist;
+use \App\Models\Rating;
+
+
 
 class Products extends Model
 {
@@ -25,5 +28,13 @@ class Products extends Model
         return $this->hasMany(Wishlist::class);
     }
 
+    public function rating()
+    {
+        return $this->hasMany(Rating::class);
+    }
+
 }
+
+
+
 

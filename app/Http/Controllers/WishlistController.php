@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Wishlist;
-// use App\Models\Admin\Products;  
+use App\Models\Admin\Products;  
 
 class WishlistController extends Controller
 {

@@ -18,8 +18,12 @@
             <thead>
                 <tr>
                     <th>NO</th>
-                    <th>Name</th>
-                    <th>Email</th>
+                    
+                    <th>
+                        Product Id
+                    </th>
+
+                    <th>registered at</th>
 
                 </tr>
             </thead>
@@ -42,14 +46,33 @@
               processing: true,
               serverSide:false,
             //   paging: true,
-              ajax: "{{ route('Admin.user.table') }}",
+              ajax: "{{ route('Admin.wishlist.table') }}",
               columns: [
                   {data: 'DT_RowIndex', name: 'DT_RowIndex'},
-                  {data: 'name', name: 'name'},
-                  {data: 'email', name: 'email'},
+                  {data: 'user_id', name: 'user_id'},
+                  {data: 'product_id', name: 'product_id'},
+                  {data: 'created_at', name: 'created_at'},
+                  
               ]
           });
         });
 
 </script>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

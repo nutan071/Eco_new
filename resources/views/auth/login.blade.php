@@ -59,7 +59,7 @@
                                 <input type="password" class="form-control" name="password" value="" placeholder="Type Password" required>
                             </div>
             
-                            <a href="{{route('user.dashboard')}}" class="btn btn-primary w-100 text-uppercase text-white rounded-2 lh-34 ff-heading fw-bold shadow">Login</a>
+                            <button type="submit" class="btn btn-primary w-100 text-uppercase text-white rounded-2 lh-34 ff-heading fw-bold shadow">Login</button>
                             
                             <p class="d-flex align-items-center justify-content-between mt-4 mb-4">Forgot your password? <a href="forgot-password.html" class="text-primary fw-bold text-decoration-underline">Reset Here</a></p>
                             

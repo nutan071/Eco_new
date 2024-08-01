@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use \App\Models\order;
+use \App\Models\Rating;
 
 
 class User extends Authenticatable
@@ -55,6 +56,18 @@ class User extends Authenticatable
         return $this->hasMany(order::class);
     }
 
-
+    public function rating()
+    {
+        return $this->hasMany(Rating::class);
+    }
 
 }
+
+
+
+
+
+
+
+
+

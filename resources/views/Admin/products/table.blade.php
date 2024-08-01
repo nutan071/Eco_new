@@ -17,9 +17,17 @@
         <table id="myTable" class="table table-bordered">
             <thead>
                 <tr>
-                    <th>NO</th>
-                    <th>Name</th>
-                    <th>Email</th>
+                <th>Id</th>
+
+                <th>Name</th>
+
+                <th>Description</th>
+
+                <th>Price</th>
+
+                <th>Quantity</th>
+
+                <th>Image</th>
 
                 </tr>
             </thead>
@@ -38,18 +46,23 @@
 <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
 <script type="text/javascript">
     $(function () {
-          var table = $('#myTable').DataTable({
+        var table = $('#myTable').DataTable({
               processing: true,
               serverSide:false,
             //   paging: true,
-              ajax: "{{ route('Admin.user.table') }}",
+              ajax: "{{ route('Admin.products.table') }}",
               columns: [
                   {data: 'DT_RowIndex', name: 'DT_RowIndex'},
                   {data: 'name', name: 'name'},
-                  {data: 'email', name: 'email'},
-              ]
+                  {data: 'description', name: 'description'},
+                  {data: 'price', name: 'price'},
+                  {data: 'quantity', name: 'quantity'},
+                  { data: 'image_url', name: 'image_url', render: function(data, type, full, meta) {
+                return '<img src="' + data + '" alt="Image" style="height: 50px;">';}},
+                { data: 'action', name: 'action' }
+
+              ]                                                                                                                                                                                                                                                                                                                                                                                 
           });
         });
-
 </script>
 </html>

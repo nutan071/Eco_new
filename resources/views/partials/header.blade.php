@@ -64,6 +64,10 @@
                                 <a href="{{ route('profile.orders') }}">PROFILE</a>
                                
                             </div>
+
+                            
+
+
                             <div  class="header__top__links">
                             <form method="POST" action="{{ route('login') }}">
                                 @csrf
@@ -86,11 +90,12 @@
                     <nav class="header__menu mobile-menu">
                         <ul>
                             <li class="active"><a href="{{ route('user.dashboard') }}">Home</a></li>
+                            <li class="active"><a href="{{route('Admin.products.table')}}">Product</a></li>
                             <li><a href="{{route('Admin.user.table')}}">User Details</a></li>
                             <li><a href="#">Pages</a>
                                 <ul class="dropdown">
-                                    <li><a href="./about.html">About Us</a></li>
-                                    <li><a href=""> Details</a></li>
+                                    <li><a href="{{route('Admin.wishlist.table')}}">wishlist</a></li>
+                                    <li><a href="{{route('Admin.order.table')}}"> order list</a></li>
                                     <li><a href="./shopping-cart.html">Shopping Cart</a></li>
                                     <li><a href="./checkout.html">Check Out</a></li>
                                     <li><a href="./blog-details.html">Blog Details</a></li>

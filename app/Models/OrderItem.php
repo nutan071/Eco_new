@@ -23,4 +23,20 @@ class OrderItem extends Model
     {
         return $this->belongsTo(Product::class);
     }
+
+    public function rating()
+    {
+        return $this->hasOne(Rating::class, 'product_id', 'product_id')->where('user_id', auth()->id());
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
