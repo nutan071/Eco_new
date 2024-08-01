@@ -20,7 +20,7 @@ class RegisterController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'email' => 'required|string|email|max:255|unique:users,email',
             'password' => 'required|string|min:8|confirmed',
         ]);
 
@@ -35,12 +35,12 @@ class RegisterController extends Controller
             'role' => 'USER',
         ]);
 
-        Auth::login($user); 
-        
+        Auth::login($user);
+
         if ($user->role === 'ADMIN') {
-            return redirect()->intended('admin/dashboard'); 
+            return redirect()->intended('Admin/dashboard');
         } else {
-            return redirect()->intended('user/dashboard');
+            return redirect()->intended('User/dashboard');
         }
     }
 }

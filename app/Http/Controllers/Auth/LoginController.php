@@ -1,7 +1,8 @@
-<?php 
+<?php
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -19,11 +20,12 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $user = Auth::user();
 
-         
+
+//            echo "<pre>";print_r($user);die();
             if ($user->role === 'ADMIN') {
-                return redirect()->intended('admin/dashboard');
+                return redirect()->intended('Admin/dashboard');
             } else {
-                return redirect()->intended('user/dashboard');
+                return redirect()->intended('User/dashboard');
             }
         }
 
@@ -32,10 +34,16 @@ class LoginController extends Controller
         ]);
     }
 
-    public function logout()
+    public function logout(Request $request)
     {
-        Auth::logout(); 
-        return redirect('login');
+        try {
+            Session::flush();
+            Auth::logout();
+//            Session::flush();
+            return redirect('login');
+        } catch (\ErrorException $e) {
+            echo "<pre>";print_r($e->getMessage());die();
+        }
     }
 
 

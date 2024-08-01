@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\OrderItem;
 
 class order extends Model
 {
@@ -22,8 +23,8 @@ class order extends Model
     }
 
   
-    // public function items()
-    // {
-    //     return $this->hasMany(OrderItem::class);
-    // }
+    public function items()
+    {
+        return $this->hasMany(OrderItem::class); 
+    }
 }
