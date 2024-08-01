@@ -59,6 +59,9 @@
                                     <li>USD</li>
                                 </ul>
                             </div>
+                            <div>
+                                <a href="{{route('cart.index')}}">PROFILE</a>
+                            </div>
                         </div>
                     </div>
                 </div>

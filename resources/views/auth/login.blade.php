@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zxx">
-    
+
 <!-- Mirrored from wpthemebooster.com/demo/themeforest/html/kleon/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 31 Jul 2024 06:16:58 GMT -->
 <head>
         <!-- Meta Tags -->
@@ -19,10 +19,10 @@
 
         <!-- Page Title -->
         <title>MaleFashion Admin Template</title>
-        
+
         <!-- Styles Include -->
         <link rel="stylesheet" href="assets/css/main.css" id="stylesheet">
-        
+
     </head>
 
 
@@ -34,7 +34,7 @@
                 <div class="logo"><img src="assets/img/logo-icon.svg" alt="img"></div>
             </div>
         </div>
-        
+
         <!-- Login Form -->
         <div class="row align-items-center justify-content-center vh-100">
             <div class="col-xxl-4 col-xl-5 col-lg-5 col-md-6">
@@ -54,25 +54,25 @@
                             <div class="form-group">
                                 <input type="email" class="form-control" name="email" value="" placeholder="Username or Email" required>
                             </div>
-            
+
                             <div class="form-group">
                                 <input type="password" class="form-control" name="password" value="" placeholder="Type Password" required>
                             </div>
-            
-                            <a href="{{route('user.dashboard')}}" class="btn btn-primary w-100 text-uppercase text-white rounded-2 lh-34 ff-heading fw-bold shadow">Login</a>
-                            
+
+                            <button type="submit" class="btn btn-primary w-100 text-uppercase text-white rounded-2 lh-34 ff-heading fw-bold shadow">Login</button>
+
                             <p class="d-flex align-items-center justify-content-between mt-4 mb-4">Forgot your password? <a href="forgot-password.html" class="text-primary fw-bold text-decoration-underline">Reset Here</a></p>
-                            
+
                             <a href="register.html" class="btn btn-secondary w-100 text-uppercase text-white rounded-2 lh-34 ff-heading fw-bold">Create an Account</a>
                         </form>
 
-           
+
                     </div>
                 </div>
             </div>
         </div>
 
-        
+
 
         <!-- Core JS -->
         <script src="assets/js/jquery-3.6.0.min.js"></script>
@@ -80,10 +80,10 @@
 
         <!-- jQuery UI Kit -->
         <script src="plugins/jquery_ui/jquery-ui.1.12.1.min.js"></script>
-        
+
         <!-- ApexChart -->
-        
-        
+
+
         <!-- Peity  -->
         <script src="plugins/peity/jquery.peity.min.js"></script>
         <script src="plugins/peity/piety-init.js"></script>
@@ -94,8 +94,8 @@
         <!-- Datatables -->
         <script src="plugins/datatables/js/jquery.dataTables.min.js"></script>
         <script src="plugins/datatables/js/datatables.init.js"></script>
-        
-        
+
+
 
         <!-- Date Picker -->
         <script src="plugins/flatpickr/flatpickr.min.js"></script>
@@ -103,15 +103,15 @@
         <!-- Dropzone -->
         <script src="plugins/dropzone/dropzone.min.js"></script>
         <script src="plugins/dropzone/dropzone_custom.js"></script>
-        
+
         <!-- TinyMCE -->
         <script src="plugins/tinymce/tinymce.min.js"></script>
         <script src="plugins/prism/prism.js"></script>
         <script src="plugins/jquery-repeater/jquery.repeater.js"></script>
 
-        
 
-        
+
+
 
         <!-- Sweet Alert -->
         <script src="plugins/sweetalert/sweetalert2.min.js"></script>
@@ -123,7 +123,7 @@
 
         <!-- Theme Custom JS -->
         <script src="assets/js/theme.js"></script>
-        
+
     </body>
 
 <!-- Mirrored from wpthemebooster.com/demo/themeforest/html/kleon/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 31 Jul 2024 06:16:58 GMT -->

@@ -36,14 +36,14 @@ class LoginController extends Controller
 
     public function logout(Request $request)
     {
-        try {
+        // try {
             Session::flush();
             Auth::logout();
 //            Session::flush();
             return redirect('login');
-        } catch (\ErrorException $e) {
-            echo "<pre>";print_r($e->getMessage());die();
-        }
+        // } catch (\ErrorException $e) {
+        //     echo "<pre>";print_r($e->getMessage());die();
+        // }
     }
 
 
