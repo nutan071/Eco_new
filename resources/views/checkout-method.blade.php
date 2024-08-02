@@ -4,9 +4,9 @@
 
 @section('content')
 <div class="container mt-5">
-    <h2>Checkout</h2>
+    <h2 class="text-center">Checkout</h2>
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
             <h4>Your Cart</h4>
             @if(session('cart'))
             <table class="table">
@@ -38,7 +38,9 @@
             <h4>Your cart is empty!</h4>
             @endif
         </div>
-        <div class="col-md-6">
+    </div>
+    <div class="row">
+        <div class="col-md-12">
             <h4>Payment Method</h4>
             <form action="{{ route('order.create') }}" method="POST">
                 @csrf

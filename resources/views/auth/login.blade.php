@@ -58,15 +58,9 @@
                             <div class="form-group">
                                 <input type="password" class="form-control" name="password" value="" placeholder="Type Password" required>
                             </div>
-<<<<<<< HEAD
             
                             <button type="submit" class="btn btn-primary w-100 text-uppercase text-white rounded-2 lh-34 ff-heading fw-bold shadow">Login</button>
                             
-=======
-
-                            <button type="submit" class="btn btn-primary w-100 text-uppercase text-white rounded-2 lh-34 ff-heading fw-bold shadow">Login</button>
-
->>>>>>> b3136abe432d0ac827e3f08bcd28b7c4964da084
                             <p class="d-flex align-items-center justify-content-between mt-4 mb-4">Forgot your password? <a href="forgot-password.html" class="text-primary fw-bold text-decoration-underline">Reset Here</a></p>
 
                             <a href="register.html" class="btn btn-secondary w-100 text-uppercase text-white rounded-2 lh-34 ff-heading fw-bold">Create an Account</a>

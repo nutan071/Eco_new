@@ -27,4 +27,10 @@ class order extends Model
     {
         return $this->hasMany(OrderItem::class); 
     }
+
+    public function rating()
+    {
+        return $this->hasManyThrough(Rating::class, OrderItem::class, 'order_id', 'product_id');
+    }
 }
+

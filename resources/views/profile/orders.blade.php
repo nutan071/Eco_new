@@ -29,6 +29,7 @@
                     <td>{{ $order->status }}</td>
                     <td>{{ $order->payment_method }}</td>
                     <td>{{ $order->created_at->format('Y-m-d') }}</td>
+                    
                     <td><a href="{{ route('profile.order_details', $order->id) }}" class="btn btn-info">View</a></td>
                 </tr>
                 @endforeach

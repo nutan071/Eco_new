@@ -33,6 +33,11 @@ class Products extends Model
         return $this->hasMany(Rating::class);
     }
 
+    public function hasBeenRatedBy($userId)
+    {
+        return $this->rating()->where('user_id', $userId)->exists();
+    }
+
 }
 
 

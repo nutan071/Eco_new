@@ -1,20 +1,19 @@
-
-
 @extends('layouts.app')
 
 @section('title', 'Order Details')
 
 @section('content')
 <div class="container mt-5">
-    <h2>Order Details</h2>
+    <h2>Order Details </h2>
     <table class="table">
         <thead>
             <tr>
                 <th>Product</th>
                 <th>Quantity</th>
                 <th>Price</th>
+                <th>Status</th>
                 <th>Rating</th>
-            </tr>
+            </tr>   
         </thead>
         <tbody>
             @foreach($order->items as $item)
@@ -22,6 +21,18 @@
                 <td>{{ $item->product->name }}</td>
                 <td>{{ $item->quantity }}</td>
                 <td>${{ $item->price }}</td>
+                <td>
+                    <form action="{{ route('order_item.update_status') }}" method="GET">
+                        @csrf
+                        <input type="hidden" name="order_item_id" value="{{ $item->id }}">
+                        <select name="status" onchange="this.form.submit()" class="form-control">
+                            <option value="processing" {{ $item->status == 'processing' ? 'selected' : '' }}>Processing</option>
+                            <option value="shipped" {{ $item->status == 'shipped' ? 'selected' : '' }}>Shipped</option>
+                            <option value="delivered" {{ $item->status == 'delivered' ? 'selected' : '' }}>Delivered</option>
+                            <option value="canceled" {{ $item->status == 'canceled' ? 'selected' : '' }}>Canceled</option>
+                        </select>
+                    </form>
+                </td>
                 <td>
                     @if($item->rating)
                         <p>Rated: {{ $item->rating->rating }} stars</p>

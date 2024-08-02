@@ -11,6 +11,7 @@ use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\RatingController;
+use App\Http\Controllers\OrderItemController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,11 +30,8 @@ Route::get('/', function () {
 
 Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('login', [LoginController::class, 'login']);
-<<<<<<< HEAD
 Route::get('logout', [LoginController::class, 'logout'])->name('auth.logout');
-=======
-Route::any('logout', [LoginController::class, 'logout'])->name('auth.logout');
->>>>>>> b3136abe432d0ac827e3f08bcd28b7c4964da084
+
 
 
 
@@ -42,35 +40,25 @@ Route::post('register', [RegisterController::class, 'register'])->name('register
 
 Route::middleware('auth')->group(function () {
     Route::get('/User/dashboard', [UserController::class, 'index'])->name('user.dashboard');
-<<<<<<< HEAD
     
-        Route::get('/profile/orders/{id}', [OrderController::class, 'show'])->name('order.details');
-        Route::post('/rating', [RatingController::class, 'store'])->name('rating.store');
-        Route::get('/profile/orders/{id}', [OrderController::class, 'reting'])->name('profile.order_details');
+    Route::get('/profile/orders', [OrderController::class, 'index'])->name('profile.orders');
+    Route::get('/profile/orders/{id}', [OrderController::class, 'show'])->name('profile.order.details');
+    Route::post('/rating', [RatingController::class, 'store'])->name('rating.store');
+    Route::get('/profile/orders/{id}', [OrderController::class, 'rate'])->name('profile.order_details');
+    Route::get('/profile/orders/{id}', [OrderController::class, 'show'])->name('profile.order_details');
+ 
 
 
-        Route::get('/profile/orders', [OrderController::class, 'index'])->name('profile.orders');
+    
     Route::get('/orders/{id}', [OrderController::class, 'show'])->name('order.details');
-    Route::post('/orders/{order}/update', [OrderController::class, 'updateStatus'])->name('order.updateStatus');
-
-
-
-=======
->>>>>>> b3136abe432d0ac827e3f08bcd28b7c4964da084
+    // Route::post('/orders/{order}/update', [OrderController::class, 'updateStatus'])->name('order.updateStatus');
+    
 });
-
-
-
-
-
 
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/Admin/dashboard', [AdminController::class, 'index'])->name('Admin.dashboard');
-<<<<<<< HEAD
     Route::resource('Admin/products', ProductsController::class, ['as' => 'Admin']);
-=======
-    Route::resource('admin/products', ProductsController::class, ['as' => 'Admin']);
->>>>>>> b3136abe432d0ac827e3f08bcd28b7c4964da084
+
     Route::get('/user-table',[AdminController::class,'userdata'])->name('Admin.user.table');
     Route::get('/wishlist-table',[AdminController::class,'wishlistdata'])->name('Admin.wishlist.table');
     Route::get('/order-table',[AdminController::class,'orderdata'])->name('Admin.order.table');
@@ -92,10 +80,11 @@ Route::post('/order/create', [CheckoutController::class, 'create'])->name('order
 Route::get('/order/success', [CheckoutController::class, 'success'])->name('order.success');
 
 Route::get('/profile/orders', [OrderController::class, 'index'])->name('profile.orders');
-// Route::get('/orders/{id}', [OrderController::class, 'show'])->name('order.details');
 
 
 
+
+Route::post('/order-item/update-status', [OrderItemController::class, 'updateStatus'])->name('order_item.update_status');
 
 
 

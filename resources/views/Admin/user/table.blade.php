@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
 </head>
 <body>
-<<<<<<< HEAD
 
 
 <div class="container mt-5">
@@ -21,7 +20,7 @@
                 </tr>
             </thead>
             <tbody id="product-list">
-
+                
             </tbody>
         </table>
 </div>
@@ -49,32 +48,4 @@
         });
 
 </script>
-=======
-    <div class="container">
-        <h2>Registered Users</h2>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Role</th>
-                    <th>Registered At</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($users as $user)
-                    <tr>
-                        <td>{{ $user->id }}</td>
-                        <td>{{ $user->name }}</td>
-                        <td>{{ $user->email }}</td>
-                        <td>{{ $user->role }}</td>
-                        <td>{{ $user->created_at }}</td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div>
-</body>
->>>>>>> b3136abe432d0ac827e3f08bcd28b7c4964da084
 </html>
