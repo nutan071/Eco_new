@@ -15,6 +15,7 @@
 <div class="content">
     <div class="container-fluid">
         <button class="btn btn-primary" data-toggle="modal" data-target="#addProductModal">Add Product</button>
+        <a href="{{ route('Admin.products.export') }}" class="btn btn-success mb-3">Download as Excel</a>
         <table class="table">
             <thead>
                 <tr>

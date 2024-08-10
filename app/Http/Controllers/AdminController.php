@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\ProductsExport;
 
 use Illuminate\Http\Request;
 use App\Models\Admin\Products;
@@ -19,6 +21,12 @@ class AdminController extends Controller
             // pr($products);
             return view('Admin.dashboard', compact('products'));
         }
+
+
+    public function exportProducts()
+    {
+        return Excel::download(new ProductsExport, 'products.xlsx');
+    }
 
         public function productdata()
             {

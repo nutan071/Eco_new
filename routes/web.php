@@ -23,9 +23,9 @@ use App\Http\Controllers\OrderItemController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 
 Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
@@ -35,7 +35,7 @@ Route::get('logout', [LoginController::class, 'logout'])->name('auth.logout');
 
 
 
-Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('register.show');
+Route::get('/', [RegisterController::class, 'showRegistrationForm'])->name('register.show');
 Route::post('register', [RegisterController::class, 'register'])->name('register.store');
 
 Route::middleware('auth')->group(function () {
@@ -62,7 +62,10 @@ Route::middleware(['auth', 'admin'])->group(function () {
     // Route::get('/orderdata-table',[OrderController::class,'OrderData'])->name('Admin.order.table');
 
     Route::get('/product-table', [AdminController::class, 'productdata'])->name('Admin.products.table');
-    Route::get('/admin/products/create', [AdminController::class, 'create'])->name('Admin.products.create');
+
+
+    Route::get('admin/products/export', [AdminController::class, 'exportProducts'])->name('Admin.products.export');
+
 
 
 
