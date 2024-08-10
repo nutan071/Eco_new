@@ -11,6 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
+      
         Schema::create('order_items', function (Blueprint $table) {
             $table->id();
             $table->foreignId('order_id')->constrained()->onDelete('cascade');
@@ -20,8 +21,12 @@ return new class extends Migration
             $table->string('status')->default('processing'); 
       
             $table->timestamps();
+        
         });
+        
     }
+
+
 
     /**
      * Reverse the migrations.

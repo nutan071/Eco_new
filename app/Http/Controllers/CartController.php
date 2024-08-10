@@ -18,6 +18,7 @@ class CartController extends Controller
             $cart[$productId]['quantity']++;
         } else {
             $cart[$productId] = [
+                "productId" =>$productId,
                 "name" => $product->name,
                 "quantity" => 1,
                 "price" => $product->price,
@@ -60,7 +61,7 @@ class CartController extends Controller
 
     public function checkout(Request $request)
     {
-    
+
         session()->forget('cart');
         return redirect()->route('user.dashboard')->with('success', 'Order placed successfully!');
     }

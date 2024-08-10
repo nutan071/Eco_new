@@ -34,8 +34,8 @@
                         <td>{{ $product->price }}</td>
                         <td>{{ $product->quantity }}</td>
                         <td>
-                            <?php 
-                            
+                            <?php
+
                                 // die("-------------------");
                             ?>
                             <img src="{{ asset('' . $product->image_url) }}" alt="{{ $product->name }}" style="width: 100px; height: auto;">
@@ -221,7 +221,7 @@ $(document).ready(function () {
             success: function (response) {
                 if (response.success) {
                     $('#editProductModal' + id).modal('hide');
-                    location.reload(); 
+                    location.reload();
                 }
             },
             error: function (response) {

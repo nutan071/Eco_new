@@ -5,19 +5,19 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Wishlist;
-use App\Models\Admin\Products;  
+use App\Models\Admin\Products;
 
 class WishlistController extends Controller
 {
     public function add(Request $request, $productId)
     {
         $user = Auth::user();
-        
-     
+
+
         $exists = Wishlist::where('user_id', $user->id)->where('product_id', $productId)->exists();
-        
+
         if (!$exists) {
-            
+
             Wishlist::create([
                 'user_id' => $user->id,
                 'product_id' => $productId,
@@ -31,9 +31,22 @@ class WishlistController extends Controller
     {
         $user = Auth::user();
         $wishlist = Wishlist::where('user_id', $user->id)
-                            ->with('product') 
+                            ->with('product')
                             ->get();
 
         return view('wishlist.index', compact('wishlist'));
     }
+
+
+    // public function wishlistdata()
+    // {
+    //     if (request()->ajax()) {
+    //         $data = Wishlist::select('id', 'user_id', 'product_id')->get();
+    //         return DataTables::of($data)
+    //             ->addIndexColumn()
+
+    //             ->make(true);
+    //     }
+    //     return view('Admin.products.table');
+    // }
 }

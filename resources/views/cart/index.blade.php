@@ -48,7 +48,7 @@
         <button type="submit" class="btn btn-success">Checkout</button>
     </form>
 
-  
+
     @else
     <h4>Your cart is empty!</h4>
     @endif

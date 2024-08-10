@@ -40,19 +40,16 @@ Route::post('register', [RegisterController::class, 'register'])->name('register
 
 Route::middleware('auth')->group(function () {
     Route::get('/User/dashboard', [UserController::class, 'index'])->name('user.dashboard');
-    
+
     Route::get('/profile/orders', [OrderController::class, 'index'])->name('profile.orders');
-    Route::get('/profile/orders/{id}', [OrderController::class, 'show'])->name('profile.order.details');
-    Route::post('/rating', [RatingController::class, 'store'])->name('rating.store');
-    Route::get('/profile/orders/{id}', [OrderController::class, 'rate'])->name('profile.order_details');
-    Route::get('/profile/orders/{id}', [OrderController::class, 'show'])->name('profile.order_details');
- 
-
-
-    
+    Route::get('/profile/orders/{id}', [OrderController::class, 'show'])->name('order.show');
+    // Route::get('/profile/store/{id}', [OrderController::class, 'rate'])->name('profile.order_details');
     Route::get('/orders/{id}', [OrderController::class, 'show'])->name('order.details');
-    // Route::post('/orders/{order}/update', [OrderController::class, 'updateStatus'])->name('order.updateStatus');
-    
+
+    Route::post('/order/store', [OrderController::class, 'store'])->name('order.store');
+
+     Route::post('/rating/store', [OrderController::class, 'storeRating'])->name('rating.store');
+
 });
 
 Route::middleware(['auth', 'admin'])->group(function () {
@@ -62,7 +59,13 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/user-table',[AdminController::class,'userdata'])->name('Admin.user.table');
     Route::get('/wishlist-table',[AdminController::class,'wishlistdata'])->name('Admin.wishlist.table');
     Route::get('/order-table',[AdminController::class,'orderdata'])->name('Admin.order.table');
+    // Route::get('/orderdata-table',[OrderController::class,'OrderData'])->name('Admin.order.table');
+
     Route::get('/product-table', [AdminController::class, 'productdata'])->name('Admin.products.table');
+    Route::get('/admin/products/create', [AdminController::class, 'create'])->name('Admin.products.create');
+
+
+
 
 });
 
@@ -79,12 +82,11 @@ Route::get('/checkout', [CheckoutController::class, 'show'])->name('checkout-met
 Route::post('/order/create', [CheckoutController::class, 'create'])->name('order.create');
 Route::get('/order/success', [CheckoutController::class, 'success'])->name('order.success');
 
-Route::get('/profile/orders', [OrderController::class, 'index'])->name('profile.orders');
 
 
 
 
-Route::post('/order-item/update-status', [OrderItemController::class, 'updateStatus'])->name('order_item.update_status');
+// Route::post('/order-item/update-status', [OrderItemController::class, 'updateStatus'])->name('order_item.update_status');
 
 
 

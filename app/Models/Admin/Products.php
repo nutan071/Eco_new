@@ -38,8 +38,13 @@ class Products extends Model
         return $this->rating()->where('user_id', $userId)->exists();
     }
 
-}
 
+
+    public function OrderItem()
+    {
+        return $this->hasMany(OrderItem::class);
+    }
+}
 
 
 

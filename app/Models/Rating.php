@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Admin\Products;
 
 class Rating extends Model
 {
@@ -14,6 +15,7 @@ class Rating extends Model
     protected $fillable = [
         'user_id',
         'product_id',
+        'order_id',
         'rating',
         'comment',
     ];
@@ -29,12 +31,18 @@ class Rating extends Model
     /**
      * Get the product that the rating is for.
      */
+
+
     public function product()
     {
-        return $this->belongsTo(Product::class);
+        return $this->belongsTo(Products::class, 'product_id');
+    }
+
+    public function order()
+    {
+        return $this->belongsTo(Order::class, 'order_id');
     }
 }
-
 
 
 

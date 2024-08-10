@@ -22,7 +22,10 @@
                 <td>{{ $item->product->name }}</td>
                 <td>${{ $item->product->price }}</td>
                 <td>
-                   
+                    <form action="#" method="POST">
+                        @csrf
+                        <button type="submit" class="btn btn-danger btn-sm">Remove</button>
+                    </form>
                 </td>
             </tr>
             @endforeach

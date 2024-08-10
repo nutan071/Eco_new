@@ -38,7 +38,7 @@
                         <p>Rated: {{ $item->rating->rating }} stars</p>
                         <p>Comment: {{ $item->rating->comment }}</p>
                     @else
-                        <form action="{{ route('rating.store') }}" method="POST">
+                        <form action="{{ route('rating.store') }}" method="GET">
                             @csrf
                             <input type="hidden" name="product_id" value="{{ $item->product_id }}">
                             <input type="hidden" name="order_id" value="{{ $order->id }}">
